@@ -1,0 +1,129 @@
+﻿<Window x:Class="Pariks.View.MakeOrder"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Pariks.View"
+        mc:Ignorable="d"
+        Title="Shop" Height="600" Width="600"
+        MinHeight="600" MinWidth="600"
+        Icon="../Resourse/iconWindow.png"
+        Activated="Window_Activated">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Background="GreenYellow" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+
+            <Image Grid.Column="0" Source="../Resourse/ico.png" HorizontalAlignment="Left" Margin="15,0"/>
+
+            <TextBlock Grid.Column="1" Text="Оформить заказ" Style="{StaticResource HeadingStyle}"/>
+
+            <Button x:Name="btnExit" Grid.Column="2"
+                    VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
+                    Margin="5, 10" Background="White" BorderBrush="Green"
+                    Style="{StaticResource ButtonStyle}" Click="btnExit_Click">
+                <TextBlock HorizontalAlignment="Left" Text="На главную"
+                           Style="{StaticResource ButtonTextStyle}" FontSize="16" Margin="25,0,0,0" />
+            </Button>
+        </Grid>
+
+
+        <Grid Grid.Row="1" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1.5*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <!--Таблица с заказами-->
+
+            <Image Grid.Row="0" Margin="20"
+                   Source="/Resourse/backgr.jpg" Stretch="UniformToFill"/>
+
+            <DataGrid x:Name="tableOrder" Grid.Row="1" Margin="20,10"  IsReadOnly="True"
+                AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Название" Binding="{Binding Path=Name}"  Width="3*"/>
+                    <DataGridTextColumn Header="Цена" Binding="{Binding Path=Cost}" Width="*"/>
+                    <DataGridTextColumn Header="Кол-во" Binding="{Binding Path=Count}" Width="*"/>
+                    <DataGridTextColumn Header="Итого" Binding="{Binding Path=Sum}" Width="*"/>
+                    <DataGridTemplateColumn Header="Действия" Width="1.1*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Button x:Name="btnAdd" Click="btnAdd_Click" Width="22" Margin="2"
+                                            Background="White" Style="{StaticResource ButtonStyle}" VerticalContentAlignment="Center">
+                                            <TextBlock Text="+" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                    </Button>
+                                    <Button x:Name="btnReduce" Click="btnReduce_Click" Width="22" Margin="2"
+                                            Background="White" Style="{StaticResource ButtonStyle}" VerticalContentAlignment="Center">
+                                        <TextBlock Text="-" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                    </Button>
+                                    <Button x:Name="btnRemove" Click="btnRemove_Click" Width="22" Margin="2" 
+                                            Background="White" Style="{StaticResource ButtonStyle}" VerticalContentAlignment="Center">
+                                        <TextBlock Text="🗑" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                    </Button>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+                
+                
+            </DataGrid>
+
+            <!--Сумма заказа и кнопка «Оформление»-->
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0" Margin="5">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock x:Name="txtOnCard" Grid.Row="0" Text="На карте"
+                               Style="{StaticResource ButtonTextStyle}"
+                               TextAlignment="Center" FontSize="14"
+                               VerticalAlignment="Top"/>
+                    <TextBlock x:Name="txtAmount" Grid.Row="1" Text="Сумма заказа"
+                               Style="{StaticResource ButtonTextStyle}"
+                               TextAlignment="Center" FontSize="14"
+                               VerticalAlignment="Top"/>
+                </Grid>
+                <Button   x:Name="butCheck" Grid.Column="1" Background="White" Style="{StaticResource ButtonStyle}"
+                          Click="butCheck_Click" HorizontalContentAlignment="Center" Foreground="Black" Margin="50,20">
+                    <TextBlock Text="Оформление" HorizontalAlignment="Center" VerticalAlignment="Center"
+                           Style="{StaticResource ButtonTextStyle}" FontSize="20" />
+                </Button>
+            </Grid>
+        </Grid>
+
+
+        <Grid Grid.Row="2" Background="GreenYellow">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Column="0" Text="Орлов А." FontSize="24"
+                       FontWeight="Bold" Style="{StaticResource ButtonTextStyle}"/>
+
+            <TextBlock Grid.Column="1" Text="test@gmail.ru" FontSize="24"
+                       FontWeight="Bold" Style="{StaticResource ButtonTextStyle}"/>
+        </Grid>
+
+    </Grid>
+
+</Window>

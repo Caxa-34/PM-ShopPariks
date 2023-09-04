@@ -1,20 +1,28 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using Pariks;
+using System.Windows.Controls;
+using System.Windows;
+
+using Pariks.View;
+using System.Diagnostics;
+using System.Collections.Generic;
 
 namespace TestPariks
 {
     [TestClass]
-    public class UnitTest
+    public class UnitTest1
     {
         [TestMethod]
         public void TestMethod1()
         {
-            var mainWindow = new Pariks.MainWindow();
+            var mainWindow = new MainWindow();
+            var btn = (Button)mainWindow.FindName("btnExit");
 
-            //mainWindow.btnExit_Click(null, null);
+            btn.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
 
         }
+
 
     }
 }

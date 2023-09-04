@@ -1,0 +1,111 @@
+﻿<Window x:Class="Pariks.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Pariks"
+        mc:Ignorable="d"
+        Title="Shop" Height="600" Width="400"
+        MinHeight="600" MinWidth="400"
+        Icon="Resourse/iconWindow.png">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Background="GreenYellow" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+            <Image Grid.Column="0" Source="Resourse/ico.png" HorizontalAlignment="Left" Margin="15,0"/>
+
+            <TextBlock Grid.Column="1" Text="Главное меню" Style="{StaticResource HeadingStyle}"/>
+
+            <Button x:Name="btnExit" Grid.Column="2"
+                    VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
+                    Margin="5, 10" Background="White" BorderBrush="Green"
+                    Click="btnExit_Click"
+                    Style="{StaticResource ButtonStyle}">
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="Выход"
+                           Style="{StaticResource ButtonTextStyle}" FontSize="16" />
+            </Button>
+            
+
+        </Grid>
+
+        <Grid Grid.Row="1" Grid.ColumnSpan="2">
+            <Grid.Background>
+                <ImageBrush ImageSource="Resourse/backgr.jpg"  Stretch="UniformToFill"/>
+            </Grid.Background>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+
+            <Button x:Name="btnPricelist" Grid.Row="1" Width="250" Height="70"
+                    Click="btnPricelist_Click" Style="{StaticResource ButtonsMainStyle}"
+                    Margin="-50, 0, 0, 0">
+                <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="3*"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.Column="0" Source="Resourse/priceList.png" Margin="5"/>
+                    <TextBlock Grid.Column="1" Text="Прайс-лист" Style="{StaticResource ButtonTextStyle}"/>
+                </Grid>
+            </Button>
+            <Button x:Name="btnZakaz" Grid.Row="2" Width="250" Height="70"
+                    Click="btnOrder_Click" Style="{StaticResource ButtonsMainStyle}">
+                <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="3*"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.Column="0" Source="Resourse/zakaz.png" Margin="10 ,5, 0, 5"/>
+                    <TextBlock Grid.Column="1" Text="Сделать заказ" Style="{StaticResource ButtonTextStyle}"/>
+                </Grid>
+            </Button>
+
+            <Button x:Name="btnKatal" Grid.Row="3" Width="250" Height="70"
+                    Click="btnKatal_Click" Style="{StaticResource ButtonsMainStyle}"
+                    Margin="50, 0, 0, 0">
+                <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="3*"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.Column="0" Source="Resourse/katalog.png" Margin="10 ,5, 0, 5"/>
+                    <TextBlock Grid.Column="1" TextAlignment="Center"  Style="{StaticResource ButtonTextStyle}">
+                        Работа<LineBreak/>
+                        с каталогом
+                    </TextBlock>
+                </Grid>
+            </Button>
+
+        </Grid>
+
+        
+        <Grid Grid.Row="2" Background="GreenYellow">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Column="0" Text="Орлов А." FontSize="24"
+                       FontWeight="Bold" Style="{StaticResource ButtonTextStyle}"/>
+
+            <TextBlock Grid.Column="1" Text="test@gmail.ru" FontSize="24"
+                       FontWeight="Bold" Style="{StaticResource ButtonTextStyle}"/>
+        </Grid>
+
+    </Grid>
+</Window>
